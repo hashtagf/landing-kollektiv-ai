@@ -5,6 +5,8 @@ import { NextResponse } from 'next/server';
  */
 export async function GET() {
   try {
+    const startTime = Date.now();
+    
     const healthData = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
@@ -24,12 +26,8 @@ export async function GET() {
         database: 'n/a', // Add database checks if needed
         external_services: 'ok',
       },
+      response_time_ms: Date.now() - startTime,
     };
-
-    // Add response time measurement
-    const startTime = Date.now();
-    const responseTime = Date.now() - startTime;
-    healthData.response_time_ms = responseTime;
 
     return NextResponse.json(healthData, {
       status: 200,
