@@ -1,0 +1,92 @@
+{
+  "seo": {
+    "title": "Kollektiv AI - Revolutionary Team Collaboration Platform",
+    "description": "Transform your team collaboration with AI-powered insights, seamless workflow automation, and intelligent project management. Join thousands of teams already using Kollektiv AI.",
+    "keywords": [
+      "AI collaboration",
+      "team productivity", 
+      "workflow automation",
+      "project management",
+      "AI-powered tools",
+      "team communication",
+      "smart analytics",
+      "collaborative workspace",
+      "artificial intelligence",
+      "team efficiency",
+      "remote collaboration",
+      "digital transformation"
+    ],
+    "author": "Kollektiv AI Team",
+    "language": "en-US",
+    "geo": {
+      "region": "US",
+      "placename": "United States"
+    }
+  },
+  "openGraph": {
+    "type": "website",
+    "locale": "en_US",
+    "url": "https://kollektiv-ai.vercel.app",
+    "siteName": "Kollektiv AI",
+    "title": "Kollektiv AI - Revolutionary Team Collaboration Platform",
+    "description": "Transform your team collaboration with AI-powered insights and seamless workflow automation.",
+    "image": {
+      "url": "/og-image.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Kollektiv AI - Team Collaboration Platform"
+    }
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@kollektivai",
+    "creator": "@kollektivai",
+    "title": "Kollektiv AI - Revolutionary Team Collaboration Platform",
+    "description": "Transform your team collaboration with AI-powered insights and seamless workflow automation.",
+    "image": "/twitter-image.png"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Kollektiv AI",
+    "description": "AI-powered team collaboration and project management platform",
+    "url": "https://kollektiv-ai.vercel.app",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1247"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Kollektiv AI",
+      "url": "https://kollektiv-ai.vercel.app"
+    }
+  },
+  "performance": {
+    "criticalResources": [
+      "/fonts/inter-var.woff2",
+      "/css/critical.css"
+    ],
+    "preconnect": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com",
+      "https://images.unsplash.com"
+    ],
+    "prefetch": [
+      "/js/main.js",
+      "/js/animations.js"
+    ]
+  },
+  "analytics": {
+    "googleAnalytics": "GA_MEASUREMENT_ID",
+    "googleTagManager": "GTM_ID",
+    "hotjar": "HOTJAR_ID"
+  }
+}
