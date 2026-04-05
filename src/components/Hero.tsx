@@ -44,13 +44,13 @@ export default function Hero() {
           }`}>
             <Link 
               href="#contact" 
-              className="bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-xl hover:bg-purple-700 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl hover:shadow-purple-500/20 hover:scale-105 transform transition-all duration-300"
             >
               Get Started Today
             </Link>
             <Link 
               href="#about" 
-              className="border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-400 hover:text-gray-950 transform hover:-translate-y-1 transition-all duration-300"
+              className="border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-blue-400 hover:text-gray-950 hover:scale-105 transform transition-all duration-300"
             >
               Learn More
             </Link>
@@ -60,21 +60,21 @@ export default function Hero() {
           <div className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center transition-all duration-1000 delay-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="flex flex-col items-center space-y-2">
-              <div className="text-3xl font-bold text-blue-400">500+</div>
-              <div className="text-sm text-gray-400">Companies Transformed</div>
+            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/40 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl font-bold text-purple-400">500+</div>
+              <div className="text-sm text-gray-400 mt-2">Companies Transformed</div>
             </div>
-            <div className="flex flex-col items-center space-y-2">
-              <div className="text-3xl font-bold text-purple-400">99.9%</div>
-              <div className="text-sm text-gray-400">Uptime Guaranteed</div>
+            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl font-bold text-blue-400">99.9%</div>
+              <div className="text-sm text-gray-400 mt-2">Uptime Guaranteed</div>
             </div>
-            <div className="flex flex-col items-center space-y-2">
-              <div className="text-3xl font-bold text-blue-400">24/7</div>
-              <div className="text-sm text-gray-400">AI Support</div>
+            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/40 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl font-bold text-purple-400">24/7</div>
+              <div className="text-sm text-gray-400 mt-2">AI Support</div>
             </div>
-            <div className="flex flex-col items-center space-y-2">
-              <div className="text-3xl font-bold text-purple-400">Enterprise</div>
-              <div className="text-sm text-gray-400">Security Standards</div>
+            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl font-bold text-blue-400">Enterprise</div>
+              <div className="text-sm text-gray-400 mt-2">Security Standards</div>
             </div>
           </div>
         </div>
@@ -82,8 +82,8 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-purple-400 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gradient-to-b from-purple-400 to-blue-400 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

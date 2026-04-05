@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
+import { Brain, Users, Zap, Shield } from 'lucide-react'
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -16,137 +16,107 @@ export default function About() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
+    const element = document.getElementById('about-section')
+    if (element) observer.observe(element)
 
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
-    }
+    return () => observer.disconnect()
   }, [])
 
   const features = [
     {
-      title: 'AI-Powered Collaboration',
-      description: 'Our intelligent agents work seamlessly together, bringing diverse expertise to every project.',
-      icon: '🤖',
+      icon: Brain,
+      title: "Advanced AI Intelligence",
+      description: "Our collective AI agents work together, combining specialized knowledge to deliver unprecedented intelligence and problem-solving capabilities.",
+      gradient: "from-purple-500 to-blue-500"
     },
     {
-      title: 'Transparent Workflow',
-      description: 'Every decision, every process is visible and documented for complete transparency.',
-      icon: '👁️',
+      icon: Users,
+      title: "Collaborative Framework",
+      description: "Experience seamless integration between AI agents and human teams, creating a powerful synergy that amplifies productivity.",
+      gradient: "from-blue-500 to-indigo-500"
     },
     {
-      title: 'Autonomous Excellence',
-      description: 'Each AI agent owns their domain, ensuring specialized expertise and efficient execution.',
-      icon: '⚡',
+      icon: Zap,
+      title: "Lightning Fast Results",
+      description: "Deploy solutions in minutes, not months. Our AI collective processes information and delivers insights at unprecedented speed.",
+      gradient: "from-purple-500 to-pink-500"
     },
     {
-      title: 'Collective Intelligence',
-      description: 'Combined AI capabilities exceed individual performance - we are stronger together.',
-      icon: '🧠',
-    },
+      icon: Shield,
+      title: "Enterprise Security",
+      description: "Bank-grade security with end-to-end encryption, compliance standards, and complete data sovereignty for your organization.",
+      gradient: "from-blue-500 to-cyan-500"
+    }
   ]
 
   return (
-    <section ref={sectionRef} id="about" className="section bg-gray-950 relative overflow-hidden">
+    <section id="about-section" className="py-24 bg-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/6 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{animationDelay: '3s'}}></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl"></div>
       </div>
 
-      <div className="container relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            About <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent">Kollektiv AI</span>
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className={`text-4xl md:text-6xl font-bold mb-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent">
+              About Kollektiv AI
+            </span>
           </h2>
-          <p className="text-xl text-gray-300 text-balance">
-            We are the world's first AI-powered software company where every team role is fulfilled by specialized Claude AI agents, 
-            working transparently and collaboratively to deliver exceptional results.
+          <p className={`text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            We're pioneering the future of artificial intelligence through collective intelligence. 
+            Our AI agents work as a unified team, each bringing specialized expertise to solve complex challenges.
           </p>
         </div>
 
-        {/* Mission Statement */}
-        <div className={`bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/20 rounded-2xl p-8 md:p-12 mb-16 transition-all duration-1000 delay-300 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Our Mission</h3>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Build an AI-powered software company where every team role is a Claude AI Agent, 
-              working transparently and collaboratively through modern communication platforms. 
-              We are <strong className="text-purple-400">Kollektiv</strong> — stronger together.
-            </p>
-          </div>
-        </div>
-
-        {/* Core Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`bg-gray-900/50 border border-gray-700 p-6 rounded-xl text-center transform hover:scale-105 transition-all duration-500 hover:border-purple-500/50 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${500 + index * 100}ms` }}
-            >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h4 className="text-xl font-semibold mb-3 text-white">{feature.title}</h4>
-              <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Company Values */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-1000 delay-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div>
-            <h3 className="text-3xl font-bold mb-8 text-white">Our Core Values</h3>
-            <div className="space-y-6">
-              {[
-                { title: 'Transparency', desc: 'All communication happens visibly. No private back-channels.' },
-                { title: 'Autonomy', desc: 'Each agent owns their domain with specialized expertise.' },
-                { title: 'Quality', desc: 'We ship working software that exceeds expectations.' },
-                { title: 'Speed', desc: 'Decisions are made quickly. Agents act, then communicate.' },
-                { title: 'Collective Intelligence', desc: 'Our combined intelligence exceeds any individual.' },
-              ].map((value, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1">{value.title}</h4>
-                    <p className="text-gray-400 text-sm">{value.desc}</p>
-                  </div>
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon
+            return (
+              <div
+                key={index}
+                className={`bg-gray-950/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/40 hover:scale-105 transform transition-all duration-300 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${500 + index * 200}ms` }}
+              >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}>
+                  <IconComponent size={32} className="text-white" />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-2xl p-8">
-              <h4 className="text-2xl font-bold mb-6 text-white">Why Choose Kollektiv?</h4>
-              <div className="space-y-4">
-                {[
-                  '24/7 AI-powered productivity',
-                  'Transparent collaborative workflow',
-                  'Specialized expertise in every domain',
-                  'Scalable solutions that grow with you',
-                  'Enterprise-grade security standards'
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-gray-300">{benefit}</span>
-                  </div>
-                ))}
+                <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{feature.description}</p>
               </div>
+            )
+          })}
+        </div>
+
+        {/* Stats Section */}
+        <div className={`mt-20 bg-gray-950/50 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 transition-all duration-1000 delay-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-2">15+</div>
+              <div className="text-gray-400 text-sm">Specialized AI Agents</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">1M+</div>
+              <div className="text-gray-400 text-sm">Tasks Completed</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">95%</div>
+              <div className="text-gray-400 text-sm">Customer Satisfaction</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">50+</div>
+              <div className="text-gray-400 text-sm">Countries Served</div>
             </div>
           </div>
         </div>
