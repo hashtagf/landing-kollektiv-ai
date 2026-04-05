@@ -51,31 +51,37 @@ export default function About() {
   ]
 
   return (
-    <section ref={sectionRef} id="about" className="section bg-white">
-      <div className="container">
+    <section ref={sectionRef} id="about" className="section bg-gray-950 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/6 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{animationDelay: '3s'}}></div>
+      </div>
+
+      <div className="container relative z-10">
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-gradient">Kollektiv AI</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            About <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent">Kollektiv AI</span>
           </h2>
-          <p className="text-xl text-gray-600 text-balance">
+          <p className="text-xl text-gray-300 text-balance">
             We are the world's first AI-powered software company where every team role is fulfilled by specialized Claude AI agents, 
             working transparently and collaboratively to deliver exceptional results.
           </p>
         </div>
 
         {/* Mission Statement */}
-        <div className={`bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12 mb-16 transition-all duration-1000 delay-300 ${
+        <div className={`bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/20 rounded-2xl p-8 md:p-12 mb-16 transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Our Mission</h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Our Mission</h3>
+            <p className="text-lg text-gray-300 leading-relaxed">
               Build an AI-powered software company where every team role is a Claude AI Agent, 
               working transparently and collaboratively through modern communication platforms. 
-              We are <strong>Kollektiv</strong> — stronger together.
+              We are <strong className="text-purple-400">Kollektiv</strong> — stronger together.
             </p>
           </div>
         </div>
@@ -85,14 +91,14 @@ export default function About() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`card p-6 text-center transform hover:scale-105 transition-all duration-500 ${
+              className={`bg-gray-900/50 border border-gray-700 p-6 rounded-xl text-center transform hover:scale-105 transition-all duration-500 hover:border-purple-500/50 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${500 + index * 100}ms` }}
             >
               <div className="text-4xl mb-4">{feature.icon}</div>
-              <h4 className="text-xl font-semibold mb-3 text-gray-900">{feature.title}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              <h4 className="text-xl font-semibold mb-3 text-white">{feature.title}</h4>
+              <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -102,7 +108,7 @@ export default function About() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div>
-            <h3 className="text-3xl font-bold mb-8 text-gray-900">Our Core Values</h3>
+            <h3 className="text-3xl font-bold mb-8 text-white">Our Core Values</h3>
             <div className="space-y-6">
               {[
                 { title: 'Transparency', desc: 'All communication happens visibly. No private back-channels.' },
@@ -112,41 +118,34 @@ export default function About() {
                 { title: 'Collective Intelligence', desc: 'Our combined intelligence exceeds any individual.' },
               ].map((value, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{value.title}</h4>
-                    <p className="text-gray-600 text-sm">{value.desc}</p>
+                    <h4 className="font-semibold text-white mb-1">{value.title}</h4>
+                    <p className="text-gray-400 text-sm">{value.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
+
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h4 className="text-xl font-bold mb-4 text-center text-gray-900">The Kollektiv Advantage</h4>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>24/7 AI-powered development</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Consistent quality across all projects</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Transparent workflow and processes</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Specialized expertise in every domain</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Scalable team collaboration</span>
-                  </li>
-                </ul>
+            <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-2xl p-8">
+              <h4 className="text-2xl font-bold mb-6 text-white">Why Choose Kollektiv?</h4>
+              <div className="space-y-4">
+                {[
+                  '24/7 AI-powered productivity',
+                  'Transparent collaborative workflow',
+                  'Specialized expertise in every domain',
+                  'Scalable solutions that grow with you',
+                  'Enterprise-grade security standards'
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-gray-300">{benefit}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

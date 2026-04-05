@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 
 const Services = () => {
@@ -29,13 +31,19 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
+    <section id="services" className="py-20 bg-gray-950 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/3 left-1/5 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/5 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Our Services
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Our <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Comprehensive AI solutions designed to transform your business operations and drive growth
           </p>
         </div>
@@ -44,19 +52,19 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-gray-900/50 border border-gray-700 rounded-xl p-8 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-2 group"
             >
               <div className="text-5xl mb-6 text-center">{service.icon}</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
+              <h3 className="text-xl font-bold text-white mb-4 text-center group-hover:text-purple-400 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 mb-6 text-center">
+              <p className="text-gray-300 mb-6 text-center">
                 {service.description}
               </p>
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                  <li key={featureIndex} className="flex items-center text-sm text-gray-400">
+                    <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
                     {feature}
                   </li>
                 ))}
@@ -68,7 +76,7 @@ const Services = () => {
         <div className="text-center mt-12">
           <a
             href="#contact"
-            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold"
+            className="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg hover:bg-purple-700 transition-colors duration-300 font-semibold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
           >
             Get Started Today
           </a>
