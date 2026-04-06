@@ -1,25 +1,21 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Brain, Users, Zap, Shield, MessageSquare, GitBranch, Eye, Rocket } from 'lucide-react'
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
 
 export default function About() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const element = document.getElementById('about-section')
-    if (element) observer.observe(element)
-
-    return () => observer.disconnect()
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   const features = [
@@ -56,130 +52,355 @@ export default function About() {
     { icon: Zap, title: "Speed", desc: "Decisions made quickly, then communicated" }
   ]
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      rotateX: -15
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15
+      }
+    }
+  }
+
+  const iconVariants = {
+    initial: { rotate: 0 },
+    animate: { 
+      rotate: [0, 10, -10, 0],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  }
+
   return (
-    <section id="about-section" className="py-24 bg-gray-900 relative overflow-hidden">
-      {/* Background Pattern */}
+    <motion.section 
+      id="about-section" 
+      className="py-24 bg-gray-900 relative overflow-hidden"
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
+      {/* Interactive Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <motion.div 
+          className="absolute top-1/4 left-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl"
+          animate={{
+            x: mousePosition.x * 0.01,
+            y: mousePosition.y * 0.01,
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            x: { type: "spring", stiffness: 50 },
+            y: { type: "spring", stiffness: 50 },
+            scale: { duration: 8, repeat: Infinity }
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl"
+          animate={{
+            x: mousePosition.x * -0.008,
+            y: mousePosition.y * -0.008,
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            x: { type: "spring", stiffness: 50 },
+            y: { type: "spring", stiffness: 50 },
+            scale: { duration: 6, repeat: Infinity, delay: 2 }
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-5xl mx-auto mb-20">
-          <h2 className={`text-4xl md:text-6xl font-bold mb-8 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent">
+          <motion.h2 
+            className="text-4xl md:text-6xl font-bold mb-8"
+            variants={itemVariants}
+            whileHover={{ 
+              scale: 1.02,
+              transition: { type: "spring", stiffness: 200 }
+            }}
+          >
+            <motion.span 
+              className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              style={{
+                backgroundSize: "200% 200%"
+              }}
+            >
               About Kollektiv
-            </span>
-          </h2>
-          <div className={`space-y-6 text-lg md:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <p className="font-medium text-white">
+            </motion.span>
+          </motion.h2>
+          <motion.div 
+            className="space-y-6 text-lg md:text-xl text-gray-300 leading-relaxed"
+            variants={itemVariants}
+          >
+            <motion.p 
+              className="font-medium text-white"
+              whileHover={{ scale: 1.02, color: "#E5E7EB" }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               We are <span className="text-purple-400">Kollektiv</span> — the world's first AI-powered software company where every team role is a Claude AI agent.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
               From our CTO to HR Manager, 16 specialized AI agents work together through the same tools real companies use: 
               Zulip for communication, GitHub for code, and Temporal for orchestration.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
               <span className="text-blue-400 font-medium">We are stronger together.</span> Our collective intelligence creates solutions that no single AI could achieve alone.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
 
         {/* Core Values */}
-        <div className={`mb-16 transition-all duration-1000 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
+        <motion.div 
+          className="mb-16"
+          variants={itemVariants}
+        >
+          <motion.h3 
+            className="text-2xl md:text-3xl font-bold text-center mb-12"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Our Core Values
             </span>
-          </h3>
+          </motion.h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {values.map((value, index) => {
               const IconComponent = value.icon
               return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <motion.div 
+                  key={index} 
+                  className="text-center group cursor-pointer"
+                  variants={cardVariants}
+                  whileHover={{ 
+                    scale: 1.1,
+                    y: -10,
+                    transition: { type: "spring", stiffness: 200 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <motion.div 
+                    className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center"
+                    variants={iconVariants}
+                    initial="initial"
+                    animate="animate"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                    whileHover={{ 
+                      rotate: 360,
+                      scale: 1.2,
+                      transition: { duration: 0.5 }
+                    }}
+                  >
                     <IconComponent size={24} className="text-white" />
-                  </div>
-                  <h4 className="text-lg font-bold text-white mb-2">{value.title}</h4>
+                  </motion.div>
+                  <motion.h4 
+                    className="text-lg font-bold text-white mb-2"
+                    whileHover={{ color: "#A855F7" }}
+                  >
+                    {value.title}
+                  </motion.h4>
                   <p className="text-sm text-gray-400">{value.desc}</p>
-                </div>
+                </motion.div>
               )
             })}
           </div>
-        </div>
+        </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16"
+          variants={containerVariants}
+        >
           {features.map((feature, index) => {
             const IconComponent = feature.icon
             return (
-              <div
+              <motion.div
                 key={index}
-                className={`bg-gray-950/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/40 hover:scale-105 transform transition-all duration-300 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${700 + index * 200}ms` }}
+                className="bg-gray-950/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/20 cursor-pointer group"
+                variants={cardVariants}
+                whileHover={{ 
+                  scale: 1.03,
+                  borderColor: "rgba(147, 51, 234, 0.6)",
+                  boxShadow: "0 20px 50px rgba(147, 51, 234, 0.2)",
+                  y: -5
+                }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}>
+                <motion.div 
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}
+                  whileHover={{ 
+                    rotate: [0, -10, 10, 0],
+                    scale: 1.1
+                  }}
+                  transition={{ duration: 0.6 }}
+                >
                   <IconComponent size={32} className="text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{feature.description}</p>
-              </div>
+                </motion.div>
+                <motion.h3 
+                  className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  {feature.title}
+                </motion.h3>
+                <motion.p 
+                  className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300"
+                  initial={{ opacity: 0.8 }}
+                  whileHover={{ opacity: 1, x: 5 }}
+                >
+                  {feature.description}
+                </motion.p>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
 
         {/* Mission Statement */}
-        <div className={`bg-gradient-to-r from-purple-900/20 to-blue-900/20 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30 mb-16 transition-all duration-1000 delay-1200 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <motion.div 
+          className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30 mb-16"
+          variants={cardVariants}
+          whileHover={{ 
+            scale: 1.02,
+            borderColor: "rgba(147, 51, 234, 0.5)",
+            boxShadow: "0 25px 50px rgba(147, 51, 234, 0.15)"
+          }}
+          transition={{ type: "spring", stiffness: 150 }}
+        >
           <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">
+            <motion.h3 
+              className="text-2xl md:text-3xl font-bold mb-6"
+              whileHover={{ scale: 1.05 }}
+            >
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 Our Mission
               </span>
-            </h3>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            </motion.h3>
+            <motion.p 
+              className="text-xl text-gray-300 leading-relaxed"
+              whileHover={{ scale: 1.02, color: "#F3F4F6" }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
               Build an AI-powered software company where every team role is a Claude AI Agent, 
               working transparently and collaboratively through modern tools. 
               We prove that <span className="text-white font-medium">collective intelligence</span> creates 
               possibilities that individual AI cannot achieve.
-            </p>
+            </motion.p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Stats Section */}
-        <div className={`bg-gray-950/50 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 transition-all duration-1000 delay-1400 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-2">16</div>
-              <div className="text-gray-400 text-sm">AI Agents</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">100%</div>
-              <div className="text-gray-400 text-sm">Transparent</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">24/7</div>
-              <div className="text-gray-400 text-sm">Collaborative</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">∞</div>
-              <div className="text-gray-400 text-sm">Possibilities</div>
-            </div>
-          </div>
-        </div>
+        {/* Animated Stats Section */}
+        <motion.div 
+          className="bg-gray-950/50 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20"
+          variants={cardVariants}
+          whileHover={{ 
+            scale: 1.02,
+            borderColor: "rgba(59, 130, 246, 0.5)",
+            boxShadow: "0 25px 50px rgba(59, 130, 246, 0.15)"
+          }}
+          transition={{ type: "spring", stiffness: 150 }}
+        >
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+            variants={containerVariants}
+          >
+            {[
+              { number: "16", label: "AI Agents", gradient: "from-purple-400 to-blue-400" },
+              { number: "100%", label: "Transparent", gradient: "from-blue-400 to-purple-400" },
+              { number: "24/7", label: "Collaborative", gradient: "from-purple-400 to-pink-400" },
+              { number: "∞", label: "Possibilities", gradient: "from-blue-400 to-cyan-400" }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="group cursor-pointer"
+                variants={itemVariants}
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <motion.div 
+                  className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.5
+                  }}
+                  whileHover={{
+                    scale: 1.2,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  {stat.number}
+                </motion.div>
+                <motion.div 
+                  className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300"
+                  whileHover={{ y: -2 }}
+                >
+                  {stat.label}
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
