@@ -29,12 +29,15 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 ## 🛠 Tech Stack
 
-- **Frontend**: Next.js 14, React 18, TypeScript
+- **Frontend**: Next.js 14 (App Router), React 18, TypeScript
 - **Styling**: Tailwind CSS, Tailwind Typography, Tailwind Forms
+- **Utilities**: clsx, tailwind-merge
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
 - **Validation**: Zod
+- **Testing**: Jest, jest-environment-jsdom
 - **Deployment**: Vercel
+- **CI/CD**: GitHub Actions
 - **Code Quality**: ESLint, Prettier, TypeScript
 
 ## 🚀 Getting Started
@@ -80,6 +83,9 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript type checking
+- `npm run test` - Run Jest tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
 - `npm run format` - Format code with Prettier
 - `npm run format:check` - Check code formatting
 
@@ -99,21 +105,32 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 ## 📁 Project Structure
 
 ```
-src/
-├── app/                   # Next.js 14 App Router
-│   ├── api/               # API routes
-│   │   ├── health/        # Health check endpoint
-│   │   └── status/        # Detailed status endpoint
-│   ├── globals.css        # Global styles (Tailwind)
-│   ├── layout.tsx         # Root layout
-│   ├── meta.json          # Metadata configuration
-│   └── page.tsx           # Home page
-└── components/            # Landing page sections
-    ├── About.tsx
-    ├── Contact.tsx
-    ├── Hero.tsx
-    ├── Services.tsx
-    └── Team.tsx
+.
+├── .github/workflows/     # GitHub Actions CI/CD
+│   └── ci-cd.yml          # CI/CD Pipeline with Routing Validation
+├── scripts/
+│   └── validate-routes.sh # Routing validation script
+├── src/
+│   ├── app/               # Next.js 14 App Router
+│   │   ├── api/           # API routes
+│   │   │   ├── health/    # Health check endpoint
+│   │   │   └── status/    # Detailed status endpoint
+│   │   ├── globals.css    # Global styles (Tailwind)
+│   │   ├── layout.tsx     # Root layout
+│   │   ├── meta.json      # Metadata configuration
+│   │   └── page.tsx       # Home page
+│   └── components/        # Landing page sections
+│       ├── About.tsx
+│       ├── Contact.tsx
+│       ├── Hero.tsx
+│       ├── Services.tsx
+│       └── Team.tsx
+├── next.config.js         # Next.js configuration
+├── tailwind.config.ts     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+├── postcss.config.js      # PostCSS configuration
+├── vercel.json            # Vercel deployment configuration
+└── package.json           # Project manifest
 ```
 
 ### Key Files
@@ -125,6 +142,8 @@ src/
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `next.config.js` - Next.js configuration
 - `vercel.json` - Vercel deployment configuration
+- `.github/workflows/ci-cd.yml` - CI/CD workflow with routing validation
+- `scripts/validate-routes.sh` - Routing validation script
 
 ## 🚀 Deployment
 
