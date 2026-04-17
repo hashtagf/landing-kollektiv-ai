@@ -5,7 +5,6 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 ## 🚀 Live Demo
 
 - **Production**: [https://landing-kollektiv-ai.vercel.app](https://landing-kollektiv-ai.vercel.app)
-- **Repository**: [https://github.com/kollektiv-ai/landing-kollektiv-ai](https://github.com/kollektiv-ai/landing-kollektiv-ai)
 
 ## 📋 Table of Contents
 
@@ -51,9 +50,8 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 ### Installation
 
-1. **Clone the repository**
+1. **Navigate to the project directory**
    ```bash
-   git clone https://github.com/kollektiv-ai/landing-kollektiv-ai.git
    cd landing-kollektiv-ai
    ```
 
@@ -152,7 +150,6 @@ src/
 
 1. **Connect Repository**
    - Import project in Vercel dashboard
-   - Connect to GitHub repository
 
 2. **Configure Environment Variables**
    - Add production environment variables in Vercel dashboard
