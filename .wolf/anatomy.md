@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-06T16:10:29.556Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-04-17T11:19:23.552Z
 > Files: 24 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -10,7 +10,7 @@
 - `next.config.js` — Next.js configuration (~213 tok)
 - `package.json` — Node.js package manifest (~403 tok)
 - `postcss.config.js` — PostCSS configuration (~24 tok)
-- `README.md` — Project documentation (~1820 tok)
+- `README.md` — Project documentation (~1445 tok)
 - `tailwind.config.ts` — Tailwind CSS configuration (~372 tok)
 - `tsconfig.json` — TypeScript configuration (~210 tok)
 - `vercel.json` (~335 tok)

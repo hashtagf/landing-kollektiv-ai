@@ -1,4 +1,37 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-04-17T06:06:22.620Z",
+      "error_message": "Significant refactor of ",
+      "file": "README.md",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 5→4 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-17T06:06:22.620Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-04-17T10:52:09.125Z",
+      "error_message": "Significant refactor of ",
+      "file": "README.md",
+      "root_cause": "12 lines replaced/restructured",
+      "fix": "Rewrote 45→31 lines (12 removed) | Also: - `npm run test` - Run tests; - `npm run test:watch` - Run tests in watch mode | Also: Required for production:; SMTP_HOST=smtp.gmail.com",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-04-17T10:52:34.019Z"
+    }
+  ]
 }
