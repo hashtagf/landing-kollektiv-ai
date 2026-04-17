@@ -14,19 +14,18 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 - [Development](#development)
 - [Project Structure](#project-structure)
 - [Deployment](#deployment)
-- [Testing](#testing)
 - [Contributing](#contributing)
 
 ## ✨ Features
 
-- **Modern Design**: Clean, professional landing page with smooth animations
+- **Modern Design**: Dark-themed landing page with smooth animations
 - **Responsive**: Mobile-first design that works on all devices
 - **Performance Optimized**: Built with Next.js 14 App Router for optimal performance
 - **Type Safety**: Full TypeScript implementation
-- **Accessibility**: WCAG compliant with proper semantic HTML
+- **Accessibility**: Semantic HTML with accessible interactions
 - **SEO Ready**: Optimized meta tags and structured data
-- **Contact Form**: Integrated contact form with email functionality
 - **Animation**: Smooth animations powered by Framer Motion
+- **Health Endpoints**: `/api/health` and `/api/status` for monitoring
 
 ## 🛠 Tech Stack
 
@@ -34,9 +33,7 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 - **Styling**: Tailwind CSS, Tailwind Typography, Tailwind Forms
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
-- **Forms**: Zod validation
-- **Email**: Nodemailer
-- **Database**: Mongoose (MongoDB)
+- **Validation**: Zod
 - **Deployment**: Vercel
 - **Code Quality**: ESLint, Prettier, TypeScript
 
@@ -46,7 +43,6 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 - Node.js 18.0.0 or higher
 - npm 8.0.0 or higher
-- MongoDB connection (for contact form)
 
 ### Installation
 
@@ -60,23 +56,10 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
    npm install
    ```
 
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Configure the following variables in `.env.local`:
+3. **Set up environment variables (optional)**
+
+   Create a `.env.local` file in the project root:
    ```env
-   # Email Configuration
-   SMTP_HOST=your-smtp-host
-   SMTP_PORT=587
-   SMTP_USER=your-email@domain.com
-   SMTP_PASS=your-app-password
-   
-   # MongoDB
-   MONGODB_URI=mongodb://localhost:27017/kollektiv-landing
-   
-   # Site Configuration
    NEXT_PUBLIC_SITE_URL=http://localhost:3000
    ```
 
@@ -97,9 +80,6 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript type checking
-- `npm run test` - Run tests
-- `npm run test:watch` - Run tests in watch mode
-- `npm run test:coverage` - Run tests with coverage
 - `npm run format` - Format code with Prettier
 - `npm run format:check` - Check code formatting
 
@@ -107,14 +87,11 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 1. **Code Style**: We use ESLint and Prettier for consistent code formatting
 2. **Type Safety**: All code should be properly typed with TypeScript
-3. **Testing**: Write tests for new features and bug fixes
-4. **Git Hooks**: Pre-commit hooks ensure code quality
 
 ### Code Quality Standards
 
 - Follow Next.js and React best practices
 - Use TypeScript for type safety
-- Implement proper error boundaries
 - Write accessible HTML with semantic elements
 - Optimize for performance and SEO
 - Follow responsive design principles
@@ -123,23 +100,28 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 ```
 src/
-├── app/                    # Next.js 14 App Router
-│   ├── api/               # API routes
-│   │   └── contact/       # Contact form endpoint
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx          # Home page
-│   └── meta.json         # Metadata configuration
-├── components/            # Reusable UI components
-├── lib/                  # Utility functions and configurations
-├── styles/               # Global styles and Tailwind CSS
-└── types/                # TypeScript type definitions
+└── app/                   # Next.js 14 App Router
+    ├── api/               # API routes
+    │   ├── health/        # Health check endpoint
+    │   └── status/        # Detailed status endpoint
+    ├── globals.css        # Global styles (Tailwind)
+    ├── layout.tsx         # Root layout
+    ├── meta.json          # Metadata configuration
+    └── page.tsx           # Home page
+src/components/            # Landing page sections
+    ├── About.tsx
+    ├── Contact.tsx
+    ├── Hero.tsx
+    ├── Services.tsx
+    └── Team.tsx
 ```
 
 ### Key Files
 
 - `src/app/layout.tsx` - Root layout with global styles and metadata
 - `src/app/page.tsx` - Main landing page component
-- `src/app/api/contact/route.ts` - Contact form API endpoint
+- `src/app/api/health/route.ts` - Health check endpoint
+- `src/app/api/status/route.ts` - Detailed status endpoint
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `next.config.js` - Next.js configuration
 - `vercel.json` - Vercel deployment configuration
@@ -161,14 +143,9 @@ src/
 
 ### Environment Variables
 
-Required for production:
+Optional for production:
 
 ```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=noreply@kollektiv.ai
-SMTP_PASS=your-app-password
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/kollektiv-landing
 NEXT_PUBLIC_SITE_URL=https://landing-kollektiv-ai.vercel.app
 ```
 
@@ -178,37 +155,6 @@ NEXT_PUBLIC_SITE_URL=https://landing-kollektiv-ai.vercel.app
 - Image optimization with Next.js Image component
 - CSS optimization with Tailwind CSS purging
 - TypeScript compilation with strict mode
-
-## 🧪 Testing
-
-### Test Structure
-
-```
-__tests__/
-├── components/           # Component tests
-├── pages/               # Page tests
-└── utils/               # Utility function tests
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-npm run test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run tests with coverage report
-npm run test:coverage
-```
-
-### Testing Guidelines
-
-- Write unit tests for utility functions
-- Write integration tests for API endpoints
-- Write component tests for UI components
-- Maintain high test coverage (>80%)
 
 ## 🤝 Contributing
 
@@ -229,7 +175,7 @@ npm run test:coverage
 
 ### Pull Request Guidelines
 
-- Ensure all tests pass
+- Ensure the build passes (`npm run build`) and lint is clean (`npm run lint`)
 - Update documentation as needed
 - Follow the existing code style
 - Include a clear description of changes
