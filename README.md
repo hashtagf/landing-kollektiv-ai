@@ -100,15 +100,15 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 ```
 src/
-└── app/                   # Next.js 14 App Router
-    ├── api/               # API routes
-    │   ├── health/        # Health check endpoint
-    │   └── status/        # Detailed status endpoint
-    ├── globals.css        # Global styles (Tailwind)
-    ├── layout.tsx         # Root layout
-    ├── meta.json          # Metadata configuration
-    └── page.tsx           # Home page
-src/components/            # Landing page sections
+├── app/                   # Next.js 14 App Router
+│   ├── api/               # API routes
+│   │   ├── health/        # Health check endpoint
+│   │   └── status/        # Detailed status endpoint
+│   ├── globals.css        # Global styles (Tailwind)
+│   ├── layout.tsx         # Root layout
+│   ├── meta.json          # Metadata configuration
+│   └── page.tsx           # Home page
+└── components/            # Landing page sections
     ├── About.tsx
     ├── Contact.tsx
     ├── Hero.tsx
