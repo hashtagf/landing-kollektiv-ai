@@ -3,8 +3,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { Code, Database, Cloud, MessageSquare, BarChart3, Cog } from 'lucide-react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { useT } from '@/i18n/LanguageProvider'
 
 export default function Services() {
+  const t = useT()
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const ref = useRef(null)
@@ -22,58 +24,40 @@ export default function Services() {
   const services = [
     {
       icon: Code,
-      title: "AI Development",
-      description: "Custom AI solutions tailored to your business needs with cutting-edge machine learning algorithms.",
-      features: ["Custom Model Training", "API Integration", "Real-time Processing", "Scalable Architecture"],
-      gradient: "from-purple-600 to-blue-600",
-      price: "From $5,000/month",
-      color: "purple"
+      ...t.services.items.development,
+      gradient: 'from-purple-600 to-blue-600',
+      color: 'purple',
     },
     {
       icon: Database,
-      title: "Data Intelligence",
-      description: "Transform your data into actionable insights with our advanced analytics and prediction models.",
-      features: ["Predictive Analytics", "Data Visualization", "Pattern Recognition", "Automated Reports"],
-      gradient: "from-blue-600 to-indigo-600",
-      price: "From $3,000/month",
-      color: "blue"
+      ...t.services.items.data,
+      gradient: 'from-blue-600 to-indigo-600',
+      color: 'blue',
     },
     {
       icon: Cloud,
-      title: "Cloud AI Platform",
-      description: "Deploy and manage AI workloads at scale with our enterprise-grade cloud infrastructure.",
-      features: ["Auto-scaling", "Global CDN", "99.9% Uptime", "Multi-region Deploy"],
-      gradient: "from-indigo-600 to-purple-600",
-      price: "From $2,000/month",
-      color: "indigo"
+      ...t.services.items.cloud,
+      gradient: 'from-indigo-600 to-purple-600',
+      color: 'indigo',
     },
     {
       icon: MessageSquare,
-      title: "AI Chatbots",
-      description: "Intelligent conversational AI that understands context and provides human-like interactions.",
-      features: ["Natural Language", "Multi-language", "Context Aware", "Integration Ready"],
-      gradient: "from-purple-600 to-pink-600",
-      price: "From $1,500/month",
-      color: "pink"
+      ...t.services.items.chatbots,
+      gradient: 'from-purple-600 to-pink-600',
+      color: 'pink',
     },
     {
       icon: BarChart3,
-      title: "Business Analytics",
-      description: "Advanced analytics powered by AI to optimize operations and drive strategic decisions.",
-      features: ["KPI Tracking", "Trend Analysis", "Forecasting", "ROI Optimization"],
-      gradient: "from-blue-600 to-cyan-600",
-      price: "From $4,000/month",
-      color: "cyan"
+      ...t.services.items.analytics,
+      gradient: 'from-blue-600 to-cyan-600',
+      color: 'cyan',
     },
     {
       icon: Cog,
-      title: "AI Automation",
-      description: "Streamline workflows and eliminate repetitive tasks with intelligent automation solutions.",
-      features: ["Process Automation", "Workflow Design", "Error Reduction", "Time Savings"],
-      gradient: "from-purple-600 to-blue-600",
-      price: "From $3,500/month",
-      color: "blue"
-    }
+      ...t.services.items.automation,
+      gradient: 'from-purple-600 to-blue-600',
+      color: 'blue',
+    },
   ]
 
   // Animation variants
@@ -152,24 +136,6 @@ export default function Services() {
     }
   }
 
-  const glowVariants = {
-    initial: { 
-      boxShadow: "0 0 0 rgba(147, 51, 234, 0)" 
-    },
-    animate: { 
-      boxShadow: [
-        "0 0 20px rgba(147, 51, 234, 0.3)",
-        "0 0 40px rgba(147, 51, 234, 0.1)",
-        "0 0 20px rgba(147, 51, 234, 0.3)"
-      ],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  }
-
   return (
     <motion.section 
       id="services-section" 
@@ -234,16 +200,16 @@ export default function Services() {
                 backgroundSize: "200% 200%"
               }}
             >
-              Our Services
+              {t.services.sectionTitle}
             </motion.span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-300 leading-relaxed"
             variants={itemVariants}
-            whileHover={{ scale: 1.02, color: "#F3F4F6" }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ scale: 1.02, color: '#F3F4F6' }}
+            transition={{ type: 'spring', stiffness: 300 }}
           >
-            Comprehensive AI solutions designed to transform your business operations and accelerate growth.
+            {t.services.sectionSubtitle}
           </motion.p>
         </div>
 
@@ -393,7 +359,7 @@ export default function Services() {
                     whileHover={{ x: "100%" }}
                     transition={{ duration: 0.5 }}
                   />
-                  <span className="relative z-10">Get Started</span>
+                  <span className="relative z-10">{t.services.cardCta}</span>
                 </motion.button>
               </motion.div>
             )
@@ -427,17 +393,17 @@ export default function Services() {
               transition={{ duration: 8, repeat: Infinity }}
             />
             
-            <motion.h3 
+            <motion.h3
               className="text-3xl font-bold text-white mb-4 relative z-10"
               whileHover={{ scale: 1.05 }}
             >
-              Need a Custom Solution?
+              {t.services.customTitle}
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-gray-300 mb-6 max-w-2xl mx-auto relative z-10"
-              whileHover={{ scale: 1.02, color: "#F3F4F6" }}
+              whileHover={{ scale: 1.02, color: '#F3F4F6' }}
             >
-              Our team of AI experts can design and implement bespoke solutions tailored to your unique requirements.
+              {t.services.customBody}
             </motion.p>
             <motion.button 
               className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold relative overflow-hidden z-10"
@@ -455,7 +421,7 @@ export default function Services() {
                 transition={{ duration: 0.3 }}
                 style={{ borderRadius: "1rem" }}
               />
-              <span className="relative z-10">Contact Our Experts</span>
+              <span className="relative z-10">{t.services.customCta}</span>
             </motion.button>
           </motion.div>
         </motion.div>

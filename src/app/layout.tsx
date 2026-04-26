@@ -1,6 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { cookies } from 'next/headers'
 import './globals.css'
+import {
+  DEFAULT_LOCALE,
+  LANG_COOKIE_NAME,
+  isLocale,
+  type Locale,
+} from '@/i18n/config'
+import { LanguageProvider } from '@/i18n/LanguageProvider'
+import Header from '@/components/Header'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -85,8 +94,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const cookieValue = cookies().get(LANG_COOKIE_NAME)?.value
+  const initialLocale: Locale = isLocale(cookieValue) ? cookieValue : DEFAULT_LOCALE
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={initialLocale} className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -96,7 +108,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
       <body className={`${inter.variable} font-sans antialiased bg-gray-950 text-white`}>
-        {children}
+        <LanguageProvider initialLocale={initialLocale}>
+          <Header />
+          {children}
+        </LanguageProvider>
         <script src="/js/main.js" defer></script>
         <script src="/js/animations.js" defer></script>
       </body>

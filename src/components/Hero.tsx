@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useT } from '@/i18n/LanguageProvider'
 
 export default function Hero() {
+  const t = useT()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
@@ -119,7 +121,7 @@ export default function Hero() {
   }
 
   // Split text for staggered animation
-  const kollektivText = "Kollektiv AI".split("")
+  const kollektivText = t.hero.brand.split('')
 
   return (
     <section className="min-h-screen bg-gray-950 flex items-center justify-center relative overflow-hidden">
@@ -216,12 +218,11 @@ export default function Hero() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
-            Transform your business with our revolutionary AI collective. 
-            Experience the power of intelligent collaboration that adapts, learns, and evolves with your team.
+            {t.hero.subtitle}
           </motion.p>
 
           {/* Enhanced CTA Buttons with whileHover and whileFocus */}
@@ -256,7 +257,7 @@ export default function Hero() {
                   boxShadow: "0 10px 30px rgba(147, 51, 234, 0.3)" 
                 }}
               >
-                Get Started Today
+                {t.hero.ctaPrimary}
               </Link>
             </motion.div>
             
@@ -284,7 +285,7 @@ export default function Hero() {
                 href="#about" 
                 className="border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-2xl text-lg font-semibold transition-colors duration-300 block focus:outline-none focus:ring-4 focus:ring-blue-500/50 hover:bg-blue-400/10"
               >
-                Learn More
+                {t.hero.ctaSecondary}
               </Link>
             </motion.div>
           </motion.div>
@@ -297,10 +298,10 @@ export default function Hero() {
             animate="visible"
           >
             {[
-              { number: "500+", label: "Companies Transformed", color: "purple" },
-              { number: "99.9%", label: "Uptime Guaranteed", color: "blue" },
-              { number: "24/7", label: "AI Support", color: "purple" },
-              { number: "Enterprise", label: "Security Standards", color: "blue" }
+              { number: t.hero.stats.companies.number, label: t.hero.stats.companies.label, color: 'purple' },
+              { number: t.hero.stats.uptime.number, label: t.hero.stats.uptime.label, color: 'blue' },
+              { number: t.hero.stats.support.number, label: t.hero.stats.support.label, color: 'purple' },
+              { number: t.hero.stats.security.number, label: t.hero.stats.security.label, color: 'blue' },
             ].map((stat, index) => (
               <motion.div
                 key={index}

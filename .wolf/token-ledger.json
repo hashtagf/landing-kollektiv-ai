@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-04-06T16:10:29.543Z",
   "lifetime": {
-    "total_tokens_estimated": 6414,
-    "total_reads": 8,
-    "total_writes": 10,
-    "total_sessions": 7,
-    "anatomy_hits": 4,
-    "anatomy_misses": 4,
-    "repeated_reads_blocked": 1,
-    "estimated_savings_vs_bare_cli": 2231
+    "total_tokens_estimated": 66167,
+    "total_reads": 40,
+    "total_writes": 65,
+    "total_sessions": 11,
+    "anatomy_hits": 29,
+    "anatomy_misses": 11,
+    "repeated_reads_blocked": 9,
+    "estimated_savings_vs_bare_cli": 18352
   },
   "sessions": [
     {
@@ -191,6 +191,524 @@
         "writes_count": 1,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-04-26-1814",
+      "started": "2026-04-26T11:14:21.294Z",
+      "ended": "2026-04-26T11:15:49.065Z",
+      "reads": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/project.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/project_state.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/layout.tsx",
+          "tokens_estimated": 917,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/page.tsx",
+          "tokens_estimated": 434,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 1415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/meta.json",
+          "tokens_estimated": 789,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/.kollektiv/plan.md",
+          "tokens_estimated": 1496,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 3555,
+        "output_tokens_estimated": 1496,
+        "reads_count": 6,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-04-26-1816",
+      "started": "2026-04-26T11:16:29.120Z",
+      "ended": "2026-04-26T11:33:11.222Z",
+      "reads": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/approved_plan.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/issue_context.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/project.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/project_state.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/package.json",
+          "tokens_estimated": 403,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/layout.tsx",
+          "tokens_estimated": 917,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/page.tsx",
+          "tokens_estimated": 434,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 1415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 1627,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 4299,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 2523,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 3611,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/tsconfig.json",
+          "tokens_estimated": 210,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/meta.json",
+          "tokens_estimated": 789,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/.eslintrc.json",
+          "tokens_estimated": 105,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/LanguageProvider.tsx",
+          "tokens_estimated": 925,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/jest.config.js",
+          "tokens_estimated": 108,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/config.ts",
+          "tokens_estimated": 190,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/dictionaries/th.ts",
+          "tokens_estimated": 2647,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/types.ts",
+          "tokens_estimated": 86,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/dictionaries/en.ts",
+          "tokens_estimated": 2766,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/dictionaries/index.ts",
+          "tokens_estimated": 47,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/types.ts",
+          "tokens_estimated": 116,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/types.ts",
+          "tokens_estimated": 1034,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/dictionaries/th.ts",
+          "tokens_estimated": 24,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/dictionaries/th.ts",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/__tests__/config.test.ts",
+          "tokens_estimated": 360,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/__tests__/dictionaries.test.ts",
+          "tokens_estimated": 512,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/LanguageProvider.tsx",
+          "tokens_estimated": 925,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/LanguageSwitcher.tsx",
+          "tokens_estimated": 364,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Header.tsx",
+          "tokens_estimated": 63,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/layout.tsx",
+          "tokens_estimated": 96,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/layout.tsx",
+          "tokens_estimated": 332,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 80,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 17,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 17,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 137,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 105,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 337,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 18,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 294,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 16,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 142,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 182,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 110,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 245,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 115,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 130,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 97,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 431,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 93,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 86,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 288,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 80,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 356,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 95,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 1191,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 552,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/.eslintrc.json",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 3,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/.gitignore",
+          "tokens_estimated": 82,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 17258,
+        "output_tokens_estimated": 15440,
+        "reads_count": 16,
+        "writes_count": 53,
+        "repeated_reads_blocked": 3,
+        "anatomy_lookups": 12
+      }
+    },
+    {
+      "id": "session-2026-04-26-1833",
+      "started": "2026-04-26T11:33:24.465Z",
+      "ended": "2026-04-26T11:37:23.938Z",
+      "reads": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/.agent_context/review_input.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Services.tsx",
+          "tokens_estimated": 4189,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Hero.tsx",
+          "tokens_estimated": 3660,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Team.tsx",
+          "tokens_estimated": 2500,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/i18n/LanguageProvider.tsx",
+          "tokens_estimated": 925,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/layout.tsx",
+          "tokens_estimated": 1061,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/Contact.tsx",
+          "tokens_estimated": 3772,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/components/About.tsx",
+          "tokens_estimated": 4125,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/package.json",
+          "tokens_estimated": 403,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/src/app/page.tsx",
+          "tokens_estimated": 434,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edf37ac8a0/repo/.kollektiv/review.md",
+          "tokens_estimated": 935,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 21069,
+        "output_tokens_estimated": 935,
+        "reads_count": 10,
+        "writes_count": 1,
+        "repeated_reads_blocked": 5,
+        "anatomy_lookups": 9
       }
     }
   ],

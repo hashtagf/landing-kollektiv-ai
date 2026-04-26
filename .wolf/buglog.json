@@ -32,6 +32,134 @@
       "related_bugs": [],
       "occurrences": 3,
       "last_seen": "2026-04-17T10:52:34.019Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-04-26T11:24:54.692Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/app/layout.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:24:54.692Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-04-26T11:25:14.249Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/components/Hero.tsx",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 8→7 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:25:14.249Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-04-26T11:25:27.394Z",
+      "error_message": "CSS fix: number",
+      "file": "src/components/Hero.tsx",
+      "root_cause": "number: \"Enterprise\", label: \"Security Standards\", color: \"blue\" → t.hero.stats.security.number, label: t.hero.stats.security.label, color: 'blue'",
+      "fix": "Changed number: \"Enterprise\", label: \"Security Standards\", color: \"blue\" → t.hero.stats.security.number, label: t.hero.stats.security.label, color: 'blue'",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:25:27.394Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-04-26T11:26:02.309Z",
+      "error_message": "CSS fix: scale, type",
+      "file": "src/components/About.tsx",
+      "root_cause": "scale: 1.02, color: \"#E5E7EB\" → 1.02, color: '#E5E7EB'; type: \"spring\", stiffness: 300 → 'spring', stiffness: 300",
+      "fix": "Changed scale: 1.02, color: \"#E5E7EB\" → 1.02, color: '#E5E7EB'; type: \"spring\", stiffness: 300 → 'spring', stiffness: 300",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-04-26T11:26:18.899Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-04-26T11:26:38.314Z",
+      "error_message": "CSS fix: gradient, color",
+      "file": "src/components/Services.tsx",
+      "root_cause": "gradient: \"from-purple-600 to-blue-600\", → 'from-purple-600 to-blue-600',; color: \"blue\" → 'blue',",
+      "fix": "Changed gradient: \"from-purple-600 to-blue-600\", → 'from-purple-600 to-blue-600',; color: \"blue\" → 'blue',",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-04-26T11:26:54.129Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-04-26T11:27:29.031Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/components/Team.tsx",
+      "root_cause": "57 lines replaced/restructured",
+      "fix": "Rewrote 72→58 lines (57 removed) | Also: Meet Our AI Collective; Our team of specialized AI agents working together",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-04-26T11:27:35.271Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-04-26T11:38:11.045Z",
+      "error_message": "Wrong reference: subtitle should be brand",
+      "file": "src/i18n/dictionaries/th.ts",
+      "root_cause": "Used \"subtitle\" instead of \"brand\"",
+      "fix": "Changed subtitle → brand",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:38:11.045Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-04-26T11:38:14.337Z",
+      "error_message": "Wrong reference: subtitle should be brand",
+      "file": "src/i18n/dictionaries/en.ts",
+      "root_cause": "Used \"subtitle\" instead of \"brand\"",
+      "fix": "Changed subtitle → brand",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:38:14.337Z"
     }
   ]
 }
