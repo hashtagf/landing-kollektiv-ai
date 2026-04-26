@@ -160,6 +160,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-04-26T11:38:14.337Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-04-26T11:57:43.068Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/app/api/status/route.ts",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:57:43.068Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-04-26T11:59:37.865Z",
+      "error_message": "Significant refactor of ",
+      "file": "README.md",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 24→33 lines (7 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:59:37.865Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-04-26T12:05:13.614Z",
+      "error_message": "Wrong reference: kollektiv should be docs",
+      "file": "README.md",
+      "root_cause": "Used \"kollektiv\" instead of \"docs\"",
+      "fix": "Changed kollektiv → docs",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T12:05:13.614Z"
     }
   ]
 }

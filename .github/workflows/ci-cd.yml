@@ -1,4 +1,4 @@
-name: CI/CD Pipeline with Routing Validation
+name: CI/CD Pipeline
 
 on:
   push:
@@ -8,8 +8,6 @@ on:
 
 env:
   NODE_VERSION: '18'
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
   lint-and-test:
@@ -76,91 +74,6 @@ jobs:
 
       - name: Stop server
         run: pkill -f "npm run start" || true
-
-  deploy-preview:
-    runs-on: ubuntu-latest
-    needs: [lint-and-test, build-test]
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy to Preview
-        id: deploy
-        run: echo "url=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_OUTPUT
-
-      - name: Run routing validation on preview
-        run: |
-          chmod +x ./scripts/validate-routes.sh
-          ./scripts/validate-routes.sh ${{ steps.deploy.outputs.url }}
-
-      - name: Comment PR with preview URL
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `🚀 Preview deployed successfully!\n\n**Preview URL:** ${{ steps.deploy.outputs.url }}\n\n✅ All routes validated and accessible.`
-            })
-
-  deploy-production:
-    runs-on: ubuntu-latest
-    needs: [lint-and-test, build-test]
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy to Production
-        id: deploy
-        run: echo "url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_OUTPUT
-
-      - name: Wait for deployment propagation
-        run: sleep 30
-
-      - name: Run comprehensive routing validation
-        run: |
-          chmod +x ./scripts/validate-routes.sh
-          chmod +x ./scripts/validate-production.sh
-          ./scripts/validate-production.sh ${{ steps.deploy.outputs.url }}
-
-      - name: Run post-deployment health checks
-        run: |
-          chmod +x ./scripts/health-check.sh
-          ./scripts/health-check.sh ${{ steps.deploy.outputs.url }}
-
-      - name: Notify deployment success
-        if: success()
-        run: |
-          echo "🎉 Production deployment successful!"
-          echo "URL: ${{ steps.deploy.outputs.url }}"
-          echo "✅ All routes validated and health checks passed"
-
-      - name: Rollback on validation failure
-        if: failure()
-        run: |
-          echo "❌ Deployment validation failed. Consider rollback procedures."
-          exit 1
 
   security-scan:
     runs-on: ubuntu-latest
