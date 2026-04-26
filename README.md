@@ -4,7 +4,8 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 
 ## 🚀 Live Demo
 
-- **Production**: [https://landing-kollektiv-ai.vercel.app](https://landing-kollektiv-ai.vercel.app)
+- **Production**: hosted on Railway (see the project dashboard for the
+  current `*.up.railway.app` URL).
 
 ## 📋 Table of Contents
 
@@ -36,7 +37,7 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 - **Icons**: Lucide React
 - **Validation**: Zod
 - **Testing**: Jest, jest-environment-jsdom
-- **Deployment**: Vercel
+- **Deployment**: Railway (Nixpacks)
 - **CI/CD**: GitHub Actions
 - **Code Quality**: ESLint, Prettier, TypeScript
 
@@ -129,7 +130,7 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 ├── tailwind.config.ts     # Tailwind CSS configuration
 ├── tsconfig.json          # TypeScript configuration
 ├── postcss.config.js      # PostCSS configuration
-├── vercel.json            # Vercel deployment configuration
+├── railway.json           # Railway deployment configuration
 └── package.json           # Project manifest
 ```
 
@@ -141,31 +142,41 @@ A modern, responsive landing page for Kollektiv AI built with Next.js 14, TypeSc
 - `src/app/api/status/route.ts` - Detailed status endpoint
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `next.config.js` - Next.js configuration
-- `vercel.json` - Vercel deployment configuration
-- `.github/workflows/ci-cd.yml` - CI/CD workflow with routing validation
-- `scripts/validate-routes.sh` - Routing validation script
+- `railway.json` - Railway deployment configuration
+- `.github/workflows/ci-cd.yml` - CI workflow (lint, test, build smoke check)
+- `scripts/validate-routes.sh` - Local routing validation script
+- `docs/runbooks/railway-cutover.md` - Railway cutover runbook
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Railway
+
+The site auto-deploys from `main` to Railway via the GitHub integration.
+The repo ships a `railway.json` that pins build/start commands and the
+`/api/health` healthcheck — no extra Railway config is required.
 
 1. **Connect Repository**
-   - Import project in Vercel dashboard
+   - In the Railway dashboard, create a service from
+     `hashtagf/landing-kollektiv-ai` and set the deploy branch to `main`.
 
 2. **Configure Environment Variables**
-   - Add production environment variables in Vercel dashboard
-   - Ensure all required variables are set
+   - Seed `MONGODB_URI`, SMTP credentials, and any `NEXT_PUBLIC_*` vars
+     in the Railway service. `RAILWAY_*` vars (region, commit SHA, branch,
+     deployment id) are injected automatically at runtime.
 
 3. **Deploy**
-   - Push to `main` branch for automatic deployment
-   - Monitor build logs for any issues
+   - Push to `main` for automatic deployment.
+   - Watch the build log; the service binds to `$PORT`.
+
+For the live cutover from Vercel, follow
+[`docs/runbooks/railway-cutover.md`](docs/runbooks/railway-cutover.md).
 
 ### Environment Variables
 
 Optional for production:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://landing-kollektiv-ai.vercel.app
+NEXT_PUBLIC_SITE_URL=https://<service>.up.railway.app
 ```
 
 ### Build Optimization
@@ -221,7 +232,7 @@ For questions and support:
    - Verify environment variables
 
 2. **404 Errors**
-   - Check vercel.json configuration
+   - Check railway.json configuration (start command, healthcheck path)
    - Verify page.tsx files exist
    - Check routing configuration
 
@@ -232,7 +243,7 @@ For questions and support:
 
 ### Getting Help
 
-1. Check the build logs in Vercel
+1. Check the build logs in Railway (`railway logs --service <service>`)
 2. Review the console for client-side errors
 3. Verify all dependencies are installed
 4. Check environment variable configuration
