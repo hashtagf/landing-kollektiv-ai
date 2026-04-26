@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-04-06T16:10:29.543Z",
   "lifetime": {
-    "total_tokens_estimated": 71672,
-    "total_reads": 50,
-    "total_writes": 66,
-    "total_sessions": 13,
-    "anatomy_hits": 35,
-    "anatomy_misses": 15,
-    "repeated_reads_blocked": 9,
-    "estimated_savings_vs_bare_cli": 19552
+    "total_tokens_estimated": 91331,
+    "total_reads": 82,
+    "total_writes": 86,
+    "total_sessions": 16,
+    "anatomy_hits": 57,
+    "anatomy_misses": 25,
+    "repeated_reads_blocked": 16,
+    "estimated_savings_vs_bare_cli": 25806
   },
   "sessions": [
     {
@@ -787,6 +787,349 @@
       "totals": {
         "input_tokens_estimated": 4220,
         "output_tokens_estimated": 1285,
+        "reads_count": 10,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-04-26-1854",
+      "started": "2026-04-26T11:54:19.677Z",
+      "ended": "2026-04-26T12:06:19.750Z",
+      "reads": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/approved_plan.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/issue_context.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/project.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/project_state.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/package.json",
+          "tokens_estimated": 403,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/health/route.ts",
+          "tokens_estimated": 535,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/status/route.ts",
+          "tokens_estimated": 1319,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/vercel.json",
+          "tokens_estimated": 335,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/next.config.js",
+          "tokens_estimated": 213,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.github/workflows/ci-cd.yml",
+          "tokens_estimated": 1452,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 1445,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/jest.config.js",
+          "tokens_estimated": 108,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/i18n/__tests__/config.test.ts",
+          "tokens_estimated": 360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/lib/__tests__/deployment.test.ts",
+          "tokens_estimated": 1019,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/lib/deployment.ts",
+          "tokens_estimated": 440,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/health/route.ts",
+          "tokens_estimated": 535,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/status/route.ts",
+          "tokens_estimated": 312,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/railway.json",
+          "tokens_estimated": 104,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/next.config.js",
+          "tokens_estimated": 323,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.github/workflows/ci-cd.yml",
+          "tokens_estimated": 575,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.kollektiv/runbooks/railway-cutover.md",
+          "tokens_estimated": 1574,
+          "action": "create"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 35,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 103,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 293,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 58,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/health/route.ts",
+          "tokens_estimated": 85,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/status/route.ts",
+          "tokens_estimated": 89,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/README.md",
+          "tokens_estimated": 10,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6170,
+        "output_tokens_estimated": 5665,
+        "reads_count": 13,
+        "writes_count": 18,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 9
+      }
+    },
+    {
+      "id": "session-2026-04-26-1906",
+      "started": "2026-04-26T12:06:32.007Z",
+      "ended": "2026-04-26T12:09:36.687Z",
+      "reads": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/review_input.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/package.json",
+          "tokens_estimated": 403,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/railway.json",
+          "tokens_estimated": 104,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/next.config.js",
+          "tokens_estimated": 323,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/health/route.ts",
+          "tokens_estimated": 563,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/lib/deployment.ts",
+          "tokens_estimated": 440,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.github/workflows/ci-cd.yml",
+          "tokens_estimated": 575,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/docs/runbooks/railway-cutover.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/src/app/api/status/route.ts",
+          "tokens_estimated": 1369,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.kollektiv/review.md",
+          "tokens_estimated": 779,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 3777,
+        "output_tokens_estimated": 779,
+        "reads_count": 9,
+        "writes_count": 1,
+        "repeated_reads_blocked": 5,
+        "anatomy_lookups": 7
+      }
+    },
+    {
+      "id": "session-2026-04-26-1934",
+      "started": "2026-04-26T12:34:19.588Z",
+      "ended": "2026-04-26T12:36:08.615Z",
+      "reads": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/issue_context.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/project.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/project_state.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/.agent_context/approved_plan.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/railway.json",
+          "tokens_estimated": 104,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/package.json",
+          "tokens_estimated": 403,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.kollektiv/runbooks/railway-cutover.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/next.config.js",
+          "tokens_estimated": 323,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.kollektiv/review.md",
+          "tokens_estimated": 682,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.github/workflows/ci-cd.yml",
+          "tokens_estimated": 575,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/hashtagf/kollektiv_workspaces/69d088d2b07c46cae0402b60/69edfc403b38/repo/.kollektiv/plan.md",
+          "tokens_estimated": 1181,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2087,
+        "output_tokens_estimated": 1181,
         "reads_count": 10,
         "writes_count": 1,
         "repeated_reads_blocked": 0,
