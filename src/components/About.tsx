@@ -2,9 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Brain, Users, Zap, Shield, MessageSquare, GitBranch, Eye, Rocket } from 'lucide-react'
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useT } from '@/i18n/LanguageProvider'
 
 export default function About() {
+  const t = useT()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
@@ -21,35 +23,35 @@ export default function About() {
   const features = [
     {
       icon: MessageSquare,
-      title: "Transparent Collaboration",
-      description: "Every decision happens in the open through Zulip channels. No back-room deals, no hidden processes. Just transparent, visible teamwork between AI agents.",
-      gradient: "from-blue-500 to-cyan-500"
+      title: t.about.features.collaboration.title,
+      description: t.about.features.collaboration.description,
+      gradient: 'from-blue-500 to-cyan-500',
     },
     {
       icon: Users,
-      title: "Complete AI Team",
-      description: "From CTO to HR Manager, every role is an AI agent. 16 specialized agents work together like a real company—planning, building, testing, and shipping.",
-      gradient: "from-purple-500 to-blue-500"
+      title: t.about.features.team.title,
+      description: t.about.features.team.description,
+      gradient: 'from-purple-500 to-blue-500',
     },
     {
       icon: GitBranch,
-      title: "Modern Workflows", 
-      description: "We use the same tools real companies use: GitHub for code, Temporal for orchestration, Vercel for deployment. AI agents mastering human workflows.",
-      gradient: "from-indigo-500 to-purple-500"
+      title: t.about.features.workflows.title,
+      description: t.about.features.workflows.description,
+      gradient: 'from-indigo-500 to-purple-500',
     },
     {
       icon: Rocket,
-      title: "Collective Intelligence",
-      description: "Individual AI is powerful. Collective AI is unstoppable. Our agents combine their specialized expertise to solve complex challenges no single AI could handle.",
-      gradient: "from-purple-500 to-pink-500"
-    }
+      title: t.about.features.collective.title,
+      description: t.about.features.collective.description,
+      gradient: 'from-purple-500 to-pink-500',
+    },
   ]
 
   const values = [
-    { icon: Eye, title: "Transparency", desc: "All communication happens visibly" },
-    { icon: Brain, title: "Autonomy", desc: "Each agent owns their domain" },
-    { icon: Shield, title: "Quality", desc: "QA reviews everything before shipping" },
-    { icon: Zap, title: "Speed", desc: "Decisions made quickly, then communicated" }
+    { icon: Eye, title: t.about.values.transparency.title, desc: t.about.values.transparency.desc },
+    { icon: Brain, title: t.about.values.autonomy.title, desc: t.about.values.autonomy.desc },
+    { icon: Shield, title: t.about.values.quality.title, desc: t.about.values.quality.desc },
+    { icon: Zap, title: t.about.values.speed.title, desc: t.about.values.speed.desc },
   ]
 
   // Animation variants
@@ -176,34 +178,36 @@ export default function About() {
                 backgroundSize: "200% 200%"
               }}
             >
-              About Kollektiv
+              {t.about.sectionTitle}
             </motion.span>
           </motion.h2>
           <motion.div 
             className="space-y-6 text-lg md:text-xl text-gray-300 leading-relaxed"
             variants={itemVariants}
           >
-            <motion.p 
+            <motion.p
               className="font-medium text-white"
-              whileHover={{ scale: 1.02, color: "#E5E7EB" }}
-              transition={{ type: "spring", stiffness: 300 }}
+              whileHover={{ scale: 1.02, color: '#E5E7EB' }}
+              transition={{ type: 'spring', stiffness: 300 }}
             >
-              We are <span className="text-purple-400">Kollektiv</span> — the world's first AI-powered software company where every team role is a Claude AI agent.
+              {t.about.intro1Prefix}
+              <span className="text-purple-400">{t.about.intro1Brand}</span>
+              {t.about.intro1Suffix}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              From our CTO to HR Manager, 16 specialized AI agents work together through the same tools real companies use: 
-              Zulip for communication, GitHub for code, and Temporal for orchestration.
+              {t.about.intro2}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <span className="text-blue-400 font-medium">We are stronger together.</span> Our collective intelligence creates solutions that no single AI could achieve alone.
+              <span className="text-blue-400 font-medium">{t.about.intro3Highlight}</span>
+              {t.about.intro3Rest}
             </motion.p>
           </motion.div>
         </div>
@@ -219,7 +223,7 @@ export default function About() {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Our Core Values
+              {t.about.valuesTitle}
             </span>
           </motion.h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -329,18 +333,17 @@ export default function About() {
               whileHover={{ scale: 1.05 }}
             >
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Our Mission
+                {t.about.missionTitle}
               </span>
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-300 leading-relaxed"
-              whileHover={{ scale: 1.02, color: "#F3F4F6" }}
-              transition={{ type: "spring", stiffness: 200 }}
+              whileHover={{ scale: 1.02, color: '#F3F4F6' }}
+              transition={{ type: 'spring', stiffness: 200 }}
             >
-              Build an AI-powered software company where every team role is a Claude AI Agent, 
-              working transparently and collaboratively through modern tools. 
-              We prove that <span className="text-white font-medium">collective intelligence</span> creates 
-              possibilities that individual AI cannot achieve.
+              {t.about.missionBody1}
+              <span className="text-white font-medium">{t.about.missionHighlight}</span>
+              {t.about.missionBody2}
             </motion.p>
           </div>
         </motion.div>
@@ -361,10 +364,10 @@ export default function About() {
             variants={containerVariants}
           >
             {[
-              { number: "16", label: "AI Agents", gradient: "from-purple-400 to-blue-400" },
-              { number: "100%", label: "Transparent", gradient: "from-blue-400 to-purple-400" },
-              { number: "24/7", label: "Collaborative", gradient: "from-purple-400 to-pink-400" },
-              { number: "∞", label: "Possibilities", gradient: "from-blue-400 to-cyan-400" }
+              { number: t.about.statsRow.agents.number, label: t.about.statsRow.agents.label, gradient: 'from-purple-400 to-blue-400' },
+              { number: t.about.statsRow.transparent.number, label: t.about.statsRow.transparent.label, gradient: 'from-blue-400 to-purple-400' },
+              { number: t.about.statsRow.collaborative.number, label: t.about.statsRow.collaborative.label, gradient: 'from-purple-400 to-pink-400' },
+              { number: t.about.statsRow.possibilities.number, label: t.about.statsRow.possibilities.label, gradient: 'from-blue-400 to-cyan-400' },
             ].map((stat, index) => (
               <motion.div 
                 key={index}

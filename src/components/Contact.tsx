@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { Mail, Phone, MapPin, Send, MessageSquare, Calendar } from 'lucide-react'
+import { useT } from '@/i18n/LanguageProvider'
 
 export default function Contact() {
+  const t = useT()
   const [isVisible, setIsVisible] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -47,49 +49,49 @@ export default function Contact() {
     setFormData({ name: '', email: '', company: '', message: '' })
     setIsSubmitting(false)
     
-    alert('Thank you! Your message has been sent. We\'ll get back to you soon.')
+    alert(t.contact.successAlert)
   }
 
   const contactMethods = [
     {
       icon: Mail,
-      title: "Email Us",
-      description: "Send us a message anytime",
-      value: "hello@kollektiv.ai",
-      action: "mailto:hello@kollektiv.ai",
-      gradient: "from-purple-600 to-blue-600"
+      title: t.contact.methods.email.title,
+      description: t.contact.methods.email.description,
+      value: 'hello@kollektiv.ai',
+      action: 'mailto:hello@kollektiv.ai',
+      gradient: 'from-purple-600 to-blue-600',
     },
     {
       icon: Phone,
-      title: "Call Us",
-      description: "Speak with our team directly",
-      value: "+1 (555) 123-4567",
-      action: "tel:+15551234567",
-      gradient: "from-blue-600 to-indigo-600"
+      title: t.contact.methods.phone.title,
+      description: t.contact.methods.phone.description,
+      value: '+1 (555) 123-4567',
+      action: 'tel:+15551234567',
+      gradient: 'from-blue-600 to-indigo-600',
     },
     {
       icon: MapPin,
-      title: "Visit Us",
-      description: "Come to our headquarters",
-      value: "San Francisco, CA",
-      action: "https://maps.google.com",
-      gradient: "from-indigo-600 to-purple-600"
-    }
+      title: t.contact.methods.visit.title,
+      description: t.contact.methods.visit.description,
+      value: t.contact.visitValue,
+      action: 'https://maps.google.com',
+      gradient: 'from-indigo-600 to-purple-600',
+    },
   ]
 
   const quickActions = [
     {
       icon: MessageSquare,
-      title: "Start Live Chat",
-      description: "Chat with our AI agents now",
-      gradient: "from-purple-600 to-pink-600"
+      title: t.contact.quickActions.chat.title,
+      description: t.contact.quickActions.chat.description,
+      gradient: 'from-purple-600 to-pink-600',
     },
     {
       icon: Calendar,
-      title: "Book a Demo",
-      description: "Schedule a personalized demo",
-      gradient: "from-blue-600 to-cyan-600"
-    }
+      title: t.contact.quickActions.demo.title,
+      description: t.contact.quickActions.demo.description,
+      gradient: 'from-blue-600 to-cyan-600',
+    },
   ]
 
   return (
@@ -107,13 +109,13 @@ export default function Contact() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600 bg-clip-text text-transparent">
-              Get in Touch
+              {t.contact.sectionTitle}
             </span>
           </h2>
           <p className={`text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Ready to transform your business with AI? Let's start a conversation about how Kollektiv AI can help.
+            {t.contact.sectionSubtitle}
           </p>
         </div>
 
@@ -149,12 +151,12 @@ export default function Contact() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/20">
-              <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
-              
+              <h3 className="text-2xl font-bold text-white mb-6">{t.contact.formTitle}</h3>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">Name *</label>
+                    <label className="block text-gray-300 text-sm font-medium mb-2">{t.contact.fields.nameLabel}</label>
                     <input
                       type="text"
                       name="name"
@@ -162,11 +164,11 @@ export default function Contact() {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200"
-                      placeholder="Your name"
+                      placeholder={t.contact.fields.namePlaceholder}
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">Email *</label>
+                    <label className="block text-gray-300 text-sm font-medium mb-2">{t.contact.fields.emailLabel}</label>
                     <input
                       type="email"
                       name="email"
@@ -174,25 +176,25 @@ export default function Contact() {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200"
-                      placeholder="your.email@company.com"
+                      placeholder={t.contact.fields.emailPlaceholder}
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">Company</label>
+                  <label className="block text-gray-300 text-sm font-medium mb-2">{t.contact.fields.companyLabel}</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200"
-                    placeholder="Your company name"
+                    placeholder={t.contact.fields.companyPlaceholder}
                   />
                 </div>
-                
+
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">Message *</label>
+                  <label className="block text-gray-300 text-sm font-medium mb-2">{t.contact.fields.messageLabel}</label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -200,21 +202,25 @@ export default function Contact() {
                     required
                     rows={4}
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200 resize-none"
-                    placeholder="Tell us about your project and how we can help..."
+                    placeholder={t.contact.fields.messagePlaceholder}
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-6 rounded-2xl font-semibold shadow-2xl hover:shadow-purple-500/20 hover:scale-105 transform transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                  aria-label={isSubmitting ? t.contact.submitting : t.contact.submit}
                 >
                   {isSubmitting ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>{t.contact.submitting}</span>
+                    </>
                   ) : (
                     <>
                       <Send size={20} />
-                      <span>Send Message</span>
+                      <span>{t.contact.submit}</span>
                     </>
                   )}
                 </button>
@@ -228,7 +234,7 @@ export default function Contact() {
           }`}>
             {/* Quick Actions */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white mb-6">Quick Actions</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t.contact.quickActionsTitle}</h3>
               {quickActions.map((action, index) => {
                 const IconComponent = action.icon
                 return (
@@ -252,33 +258,33 @@ export default function Contact() {
 
             {/* Additional Info */}
             <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20">
-              <h4 className="text-lg font-bold text-white mb-4">Response Time</h4>
+              <h4 className="text-lg font-bold text-white mb-4">{t.contact.responseTitle}</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Email inquiries:</span>
-                  <span className="text-blue-400">Within 2 hours</span>
+                  <span className="text-gray-400">{t.contact.response.emailLabel}</span>
+                  <span className="text-blue-400">{t.contact.response.emailValue}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Phone calls:</span>
-                  <span className="text-purple-400">Immediate</span>
+                  <span className="text-gray-400">{t.contact.response.phoneLabel}</span>
+                  <span className="text-purple-400">{t.contact.response.phoneValue}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Demo requests:</span>
-                  <span className="text-blue-400">Same day</span>
+                  <span className="text-gray-400">{t.contact.response.demoLabel}</span>
+                  <span className="text-blue-400">{t.contact.response.demoValue}</span>
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20">
-              <h4 className="text-lg font-bold text-white mb-4">Office Hours</h4>
+              <h4 className="text-lg font-bold text-white mb-4">{t.contact.hoursTitle}</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Monday - Friday:</span>
-                  <span className="text-white">9:00 AM - 6:00 PM PST</span>
+                  <span className="text-gray-400">{t.contact.hours.weekdaysLabel}</span>
+                  <span className="text-white">{t.contact.hours.weekdaysValue}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Emergency Support:</span>
-                  <span className="text-green-400">24/7 Available</span>
+                  <span className="text-gray-400">{t.contact.hours.emergencyLabel}</span>
+                  <span className="text-green-400">{t.contact.hours.emergencyValue}</span>
                 </div>
               </div>
             </div>
