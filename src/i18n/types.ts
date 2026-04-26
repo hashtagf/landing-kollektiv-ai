@@ -8,6 +8,7 @@ export type Dictionary = {
     ariaSwitchTo: string
   }
   hero: {
+    brand: string
     subtitle: string
     ctaPrimary: string
     ctaSecondary: string

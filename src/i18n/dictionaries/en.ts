@@ -8,6 +8,7 @@ const en: Dictionary = {
     ariaSwitchTo: 'Switch language to',
   },
   hero: {
+    brand: 'Kollektiv AI',
     subtitle:
       'Transform your business with our revolutionary AI collective. Experience the power of intelligent collaboration that adapts, learns, and evolves with your team.',
     ctaPrimary: 'Get Started Today',

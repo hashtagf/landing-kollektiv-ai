@@ -121,7 +121,7 @@ export default function Hero() {
   }
 
   // Split text for staggered animation
-  const kollektivText = "Kollektiv AI".split("")
+  const kollektivText = t.hero.brand.split('')
 
   return (
     <section className="min-h-screen bg-gray-950 flex items-center justify-center relative overflow-hidden">

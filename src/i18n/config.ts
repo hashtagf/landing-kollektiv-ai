@@ -19,3 +19,15 @@ export function resolveLocale(
   if (isLocale(cookieValue)) return cookieValue
   return DEFAULT_LOCALE
 }
+
+export function cleanInvalidLangParam(
+  queryString: string,
+  pathname: string,
+): string | null {
+  const params = new URLSearchParams(queryString)
+  const queryValue = params.get(LANG_QUERY_PARAM)
+  if (!queryValue || isLocale(queryValue)) return null
+  params.delete(LANG_QUERY_PARAM)
+  const qs = params.toString()
+  return `${pathname}${qs ? `?${qs}` : ''}`
+}

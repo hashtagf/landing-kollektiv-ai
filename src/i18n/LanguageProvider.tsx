@@ -3,10 +3,10 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import {
-  DEFAULT_LOCALE,
   LANG_COOKIE_MAX_AGE,
   LANG_COOKIE_NAME,
   LANG_QUERY_PARAM,
+  cleanInvalidLangParam,
   isLocale,
   resolveLocale,
   type Locale,
@@ -52,7 +52,7 @@ export function LanguageProvider({
   useEffect(() => {
     const queryValue = searchParams?.get(LANG_QUERY_PARAM) ?? null
     const cookieValue = readCookie(LANG_COOKIE_NAME)
-    const resolved = resolveLocale(queryValue, cookieValue ?? initialLocale)
+    const resolved = resolveLocale(queryValue, cookieValue)
 
     if (resolved !== locale) {
       setLocaleState(resolved)
@@ -66,13 +66,11 @@ export function LanguageProvider({
       document.documentElement.lang = resolved
     }
 
-    if (queryValue && !isLocale(queryValue)) {
-      const cleaned = new URLSearchParams(searchParams?.toString() ?? '')
-      cleaned.delete(LANG_QUERY_PARAM)
-      const qs = cleaned.toString()
-      router.replace(`${pathname}${qs ? `?${qs}` : ''}`, { scroll: false })
+    const cleanedUrl = cleanInvalidLangParam(searchParams?.toString() ?? '', pathname)
+    if (cleanedUrl) {
+      router.replace(cleanedUrl, { scroll: false })
     }
-  }, [searchParams, initialLocale, locale, pathname, router])
+  }, [searchParams, locale, pathname, router])
 
   const setLocale = useCallback(
     (next: Locale) => {
@@ -108,5 +106,3 @@ export function useLanguage(): LanguageContextValue {
 export function useT(): Dictionary {
   return useLanguage().t
 }
-
-export { DEFAULT_LOCALE }

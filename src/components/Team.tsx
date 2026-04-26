@@ -7,7 +7,6 @@ import { useT } from '@/i18n/LanguageProvider'
 export default function Team() {
   const t = useT()
   const [isVisible, setIsVisible] = useState(false)
-  const [, setHoveredMember] = useState<number | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -119,8 +118,6 @@ export default function Team() {
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${500 + index * 100}ms` }}
-                onMouseEnter={() => setHoveredMember(index)}
-                onMouseLeave={() => setHoveredMember(null)}
               >
                 {/* Avatar */}
                 <div className="text-center mb-6">

@@ -128,6 +128,38 @@
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-04-26T11:27:35.271Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-04-26T11:38:11.045Z",
+      "error_message": "Wrong reference: subtitle should be brand",
+      "file": "src/i18n/dictionaries/th.ts",
+      "root_cause": "Used \"subtitle\" instead of \"brand\"",
+      "fix": "Changed subtitle → brand",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:38:11.045Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-04-26T11:38:14.337Z",
+      "error_message": "Wrong reference: subtitle should be brand",
+      "file": "src/i18n/dictionaries/en.ts",
+      "root_cause": "Used \"subtitle\" instead of \"brand\"",
+      "fix": "Changed subtitle → brand",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T11:38:14.337Z"
     }
   ]
 }

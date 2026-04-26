@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-26T11:31:56.424Z
-> Files: 37 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-04-26T11:39:24.628Z
+> Files: 39 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -32,6 +32,7 @@
 ## .kollektiv/
 
 - `plan.md` — Plan: TH/EN i18n for landing site (~1309 tok)
+- `review.md` — Summary (~818 tok)
 
 ## scripts/
 
@@ -60,21 +61,22 @@
 - `Hero.tsx` — Hero (~3660 tok)
 - `LanguageSwitcher.tsx` — LanguageSwitcher (~364 tok)
 - `Services.tsx` — Services (~4189 tok)
-- `Team.tsx` — Team (~2500 tok)
+- `Team.tsx` — Team (~2448 tok)
 
 ## src/i18n/
 
-- `config.ts` — Exports LOCALES, DEFAULT_LOCALE, LANG_COOKIE_NAME, LANG_QUERY_PARAM + 4 more (~190 tok)
-- `LanguageProvider.tsx` — LanguageContext (~925 tok)
-- `types.ts` — Exports Dictionary (~1034 tok)
+- `config.ts` — Exports LOCALES, DEFAULT_LOCALE, LANG_COOKIE_NAME, LANG_QUERY_PARAM + 5 more (~295 tok)
+- `LanguageProvider.tsx` — LanguageContext (~878 tok)
+- `types.ts` — Exports Dictionary (~1039 tok)
 
 ## src/i18n/__tests__/
 
 - `config.test.ts` (~360 tok)
 - `dictionaries.test.ts` — Shape: describeShape (~512 tok)
+- `LanguageProvider.test.tsx` (~299 tok)
 
 ## src/i18n/dictionaries/
 
-- `en.ts` — Declares en (~2766 tok)
+- `en.ts` — Declares en (~2774 tok)
 - `index.ts` — Exports dictionaries (~47 tok)
-- `th.ts` — Declares th (~2660 tok)
+- `th.ts` — Declares th (~2668 tok)

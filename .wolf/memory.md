@@ -116,3 +116,27 @@
 | 18:30 | Edited src/components/Team.tsx | 5→3 lines | ~25 |
 | 18:30 | Edited src/components/Team.tsx | 2→2 lines | ~32 |
 | 18:31 | Created .gitignore | — | ~77 |
+| 18:33 | Session end: 53 writes across 19 files (jest.config.js, config.ts, th.ts, types.ts, en.ts) | 16 reads | ~32698 tok |
+
+## Session: 2026-04-26 18:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:37 | Created .kollektiv/review.md | — | ~873 |
+| 18:37 | Session end: 1 writes across 1 files (review.md) | 10 reads | ~22004 tok |
+
+## Session: 2026-04-26 18:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:38 | Edited src/i18n/types.ts | 4→5 lines | ~28 |
+| 18:38 | Edited src/i18n/dictionaries/th.ts | 2→3 lines | ~15 |
+| 18:38 | Edited src/i18n/dictionaries/en.ts | 2→3 lines | ~15 |
+| 18:38 | Edited src/components/Hero.tsx | 2→2 lines | ~25 |
+| 18:38 | Edited src/components/Team.tsx | 2→1 lines | ~15 |
+| 18:38 | Edited src/components/Team.tsx | 4→2 lines | ~25 |
+| 18:38 | Edited src/i18n/config.ts | added 1 condition(s) | ~176 |
+| 18:39 | Edited src/i18n/LanguageProvider.tsx | 9→9 lines | ~46 |
+| 18:39 | Edited src/i18n/LanguageProvider.tsx | modified if() | ~192 |
+| 18:39 | Edited src/i18n/LanguageProvider.tsx | modified useT() | ~18 |
+| 18:39 | Created src/i18n/__tests__/LanguageProvider.test.tsx | — | ~299 |
