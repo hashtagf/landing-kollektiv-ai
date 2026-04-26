@@ -61,9 +61,7 @@ jobs:
         run: npm run build
 
       - name: Start production server
-        run: npm run start &
-        env:
-          PORT: 3000
+        run: npm start -- -p 3000 &
 
       - name: Wait for server startup
         run: sleep 10
@@ -73,7 +71,7 @@ jobs:
           curl -f http://localhost:3000 || exit 1
 
       - name: Stop server
-        run: pkill -f "npm run start" || true
+        run: pkill -f "next start" || true
 
   security-scan:
     runs-on: ubuntu-latest

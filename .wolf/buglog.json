@@ -208,6 +208,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-04-26T12:05:13.614Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-04-26T12:38:43.721Z",
+      "error_message": "Incorrect value in code",
+      "file": "railway.json",
+      "root_cause": "Had \"npm ci && npm run build\"",
+      "fix": "Changed to \"npm run build\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "json"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T12:38:43.721Z"
     }
   ]
 }

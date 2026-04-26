@@ -1,18 +1,18 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-26T12:05:13.606Z
-> Files: 42 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-04-26T12:41:12.406Z
+> Files: 43 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.eslintrc.json` (~107 tok)
 - `.gitignore` — Git ignore rules (~77 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
-- `jest.config.js` — Declares nextJest (~108 tok)
+- `jest.config.js` — Declares nextJest (~126 tok)
 - `next.config.js` — Declares nextConfig (~323 tok)
 - `package.json` — Node.js package manifest (~403 tok)
 - `postcss.config.js` — PostCSS configuration (~24 tok)
-- `railway.json` (~104 tok)
+- `railway.json` (~101 tok)
 - `README.md` — Project documentation (~1845 tok)
 - `tailwind.config.ts` — Tailwind CSS configuration (~372 tok)
 - `tsconfig.json` — TypeScript configuration (~210 tok)
@@ -27,20 +27,24 @@
 
 ## .github/workflows/
 
-- `ci-cd.yml` — CI: CI/CD Pipeline (~575 tok)
+- `ci-cd.yml` — CI: CI/CD Pipeline (~567 tok)
 
 ## .kollektiv/
 
-- `plan.md` — Plan: Migrate landing-kollektiv-ai from Vercel to Railway (~1125 tok)
-- `review.md` — Summary (~818 tok)
+- `plan.md` — Plan: Fix Railway build (npm EBUSY) and clean up cutover follow-ups (~1033 tok)
+- `review.md` — Summary (~682 tok)
 
-## .kollektiv/runbooks/
+## docs/runbooks/
 
 - `railway-cutover.md` — Railway Cutover Runbook — landing-kollektiv-ai (~1377 tok)
 
 ## scripts/
 
 - `validate-routes.sh` — Routing Validation Script (~1626 tok)
+
+## scripts/__tests__/
+
+- `railway-config.test.ts` — Declares repoRoot (~334 tok)
 
 ## src/app/
 
